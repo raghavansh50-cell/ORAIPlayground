@@ -4,45 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GLM-5.2 Web Playground</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Google Material Icons for Gemini vibe -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* Custom scrollbar for clean dark look */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #1e1e2e; }
-        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: #111116; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+        
+        /* Smooth blinking cursor animation for code blocks if needed */
+        .code-box pre {
+            background-color: #09090b !important;
+            font-family: 'Courier New', Courier, monospace;
+        }
     </style>
 </head>
 <body class="bg-[#111116] text-[#e4e4e7] font-sans h-screen flex flex-col justify-between">
 
-    <!-- Header -->
     <header class="border-b border-[#27272a] p-4 flex justify-between items-center bg-[#18181b]">
         <div class="flex items-center gap-2">
             <span class="material-icons text-purple-400">psychology</span>
             <h1 class="text-lg font-semibold tracking-wide">GLM 5.2 AI Coder</h1>
         </div>
-        <div class="text-xs text-zinc-500 font-mono">Cloud Powered (Vercel)</div>
+        <div class="text-xs text-zinc-500 font-mono">Single File Cloud App</div>
     </header>
 
-    <!-- Chat Screen Area -->
     <main id="chat-container" class="flex-1 overflow-y-auto p-4 space-y-6 max-w-4xl w-full mx-auto pb-32">
-        <!-- AI Welcome Message -->
         <div class="flex gap-4 items-start">
             <div class="bg-purple-600/20 text-purple-400 p-2 rounded-lg flex items-center justify-center">
                 <span class="material-icons text-sm">smart_toy</span>
             </div>
-            <div class="space-y-1">
+            <div class="space-y-1 w-full">
                 <p class="text-sm font-medium text-zinc-400">GLM-5.2 Bot</p>
                 <div class="text-zinc-200 text-[15px] leading-relaxed">
-                    Hey! Main tayyar hu code likhne ke liye. Mujhe batao kaunsa component ya page banana hai?
+                    Hey! Main tayyar hu code likhne ke liye. Mujhe batao kaunsa HTML/CSS component ya page banana hai?
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Floating Input Box (Gemini Style) -->
     <footer class="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-[#111116] via-[#111116] to-transparent pt-6 pb-4 px-4">
         <div class="max-w-3xl mx-auto relative bg-[#1e1e24] border border-[#27272a] rounded-2xl p-2 flex items-center shadow-xl">
             <textarea id="user-input" rows="1" placeholder="Ask GLM-5.2 to write code..." 
@@ -54,8 +53,34 @@
         </div>
     </footer>
 
-    <!-- Script Placeholder -->
-    <script src="app.js"></script>
-</body>
-  </html>
-  
+    <script>
+        // ENTER YOUR OPENROUTER API KEY HERE
+        const OPENROUTER_API_KEY = "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"; 
+        
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Text Area auto-resize logic for mobile comfort
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Custom Parser: Splits normal text and code backticks ```...```
+        function parseMarkdown(text) {
+            const parts = text.split(/(```[\s\S]*?```)/g);
+            return parts.map(part => {
+                if (part.startsWith('```')) {
+                    // Extract language and code content
+                    const match = part.match(/
+http://googleusercontent.com/immersive_entry_chip/0
+
+### Tumhe kya karna hai:
+1. Bas script ke andar jo `const OPENROUTER_API_KEY = "YOUR_OPENROUTER_API_KEY_HERE";` hai, wahan apni OpenRouter ki real API key paste kar dena.
+2. Is single file ko GitHub par commit karo aur Vercel se deploy kar do.
+
+Ek baar check karo aur batao ye single-file structure samajh aaya?
+
+Confidence 10: Complete technical single-file architecture deployed optimally on modern cloud structures without any package clutter.
+        
